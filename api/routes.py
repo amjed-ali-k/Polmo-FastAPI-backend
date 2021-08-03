@@ -5,7 +5,7 @@ router = fastapi.APIRouter()
 
 @router.get('/', include_in_schema=False)
 def index():
-    return responses.RedirectResponse(url='/docs')
+    return responses.RedirectResponse(url='/redoc')
 
 
 @router.get('/favicon.ico', include_in_schema=False)

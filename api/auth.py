@@ -12,7 +12,6 @@ from services.user import authenticate_user, create_access_token, get_current_ac
 
 router = APIRouter()
 
-
 @router.post("/token", response_model=Token, tags=['User'])
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = await authenticate_user(form_data.username, form_data.password)

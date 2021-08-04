@@ -1,7 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
-
+name: Deploy to deta
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -21,12 +20,21 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      # Install Deta CLI as per docs
+    # https://docs.deta.sh/docs/cli/install
+    - name: Install Deta CLI
+      shell: bash
+      run: |
+        curl -fsSL https://get.deta.dev/cli.sh | sh
 
-      # Runs a single command using the runners shell
-      - name: Install Deta CLI
-        run: curl -fsSL https://get.deta.dev/cli.sh | sh
-        
-      # Runs a set of commands using the runners shell
-      - name: Deploy to deta
-        run: deta deploy
+    - name: Clone Deta Metadata
+      shell: bash
+      run: |
+        export DETA_ACCESS_TOKEN=${{ secret.DETA_ACCESS_TOKEN }}
+        ~/.deta/bin/deta clone --name Polmo-FastAPI-backend --project Polimo tmp/
+        cp -r tmp/.deta .
+    - name: Deploy to Deta 
+      shell: bash
+      run: |
+        export DETA_ACCESS_TOKEN=${{ inputs.deta-access-token }}
+        ~/.deta/bin/deta deploy

@@ -8,7 +8,10 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+env:
+      CLOUDANT_AUTH_TYPE: IAM
+      CLOUDANT_URL: https://apikey-v2--bluemix.cloudantnosqldb.appdomain.cloud
+      CLOUDANT_APIKEY: kvAIqmx5eWK1
 jobs:
   build:
 

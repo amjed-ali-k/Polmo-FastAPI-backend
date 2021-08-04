@@ -1,5 +1,4 @@
-import json
-from pathlib import Path
+import json, os
 from typing import List
 
 import aiofiles
@@ -16,7 +15,7 @@ valid_sensors = ['NO2', 'CO2', 'CH4', 'CO', 'PM1.0', 'PM2.0', 'PM10', 'O3', 'SO2
 
 @r.get('/sensor/details/polmo/1.0', tags=[tagname])
 async def get_sensor_hardware_details():
-    async with aiofiles.open(Path.cwd() / 'docs' / 'sensors.json', mode='r') as f:
+    async with aiofiles.open(os.getcwd() + '/docs/' + 'sensors.json', mode='r') as f:
         sensors = json.loads(await f.read())
     return sensors
 

@@ -10,4 +10,4 @@ jobs:
         with:
           deta-access-token: ${{ secrets.DETA_ACCESS_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
           deta-name: 'Polmo-FastAPI-backend' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project: 'polmo' #Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
+          deta-project: 'Polimo' #Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone

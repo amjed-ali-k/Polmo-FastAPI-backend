@@ -12,3 +12,4 @@ ibmcloudant>=0.0.34
 uvicorn
 aiofiles
 python-multipart
+deta

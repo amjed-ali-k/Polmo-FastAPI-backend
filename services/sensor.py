@@ -10,7 +10,7 @@ from services.db.cloudant.SensorDB import read_last_values
 package = "services.db." + settings.DB
 name = "SensorDB"
 sensorDB = getattr(__import__(package, fromlist=[name]), name)
-
+from services.db.deta import SensorDB as DetaDB
 
 def iso_format(dt):
     # Convert Date to Javascript ISO Format
@@ -23,7 +23,7 @@ def iso_format(dt):
 
 
 async def get_last_value(pollutant, node) -> Optional[SensorReading]:
-    return await sensorDB.read_last_sensor_value(pollutant, node)
+    return await DetaDB.read_last_sensor_value(pollutant, node)
 
 
 async def get_last_values(pollutant, node, days) -> Optional[List[SensorReading]]:

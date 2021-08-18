@@ -4,8 +4,9 @@ from typing import List
 import aiofiles
 from fastapi import HTTPException, APIRouter
 from starlette import status
-
-from models.sensordata import SensorReading
+from config import settings
+from models.sensordata import SensorReading, SensorPost
+from services.db.deta.SensorDB import store_data_to_deta_db
 from services.sensor import get_last_value, get_last_values
 
 r = APIRouter()
@@ -49,3 +50,12 @@ async def get_last_days_reading(node: str, pollutant: str, days: int):
     if not res:
         raise HTTPException(status_code=status.HTTP_206_PARTIAL_CONTENT, detail="No data available")
     return res
+
+
+@r.post('/update/value/', tags=[tagname])
+async def add_sensor_reading(reading: SensorPost):
+    if reading.token != settings.SECRET_KEY:
+        raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Token is invalid")
+    data = SensorReading(**reading.dict())
+    store_data_to_deta_db(data)
+    return "Success"

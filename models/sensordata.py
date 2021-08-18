@@ -9,3 +9,6 @@ class SensorReading(BaseModel):
     time: str
     node: Optional[str]
 
+
+class SensorPost(SensorReading):
+    token: str

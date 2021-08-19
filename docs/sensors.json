@@ -111,7 +111,34 @@
       "unit": "ppm"
     }
   },
-  "PM": {
+  "PM1.0": {
+    "name": "Particulate Matters",
+    "description": "Particulates – also known as atmospheric aerosol particles, atmospheric particulate matter, particulate matter (PM), or suspended particulate matter (SPM) – are microscopic particles of solid or liquid matter suspended in the air. The term aerosol commonly refers to the particulate/air mixture, as opposed to the particulate matter alone. Sources of particulate matter can be natural or anthropogenic. They have impacts on climate and precipitation that adversely affect human health, in ways additional to direct inhalation. The size of the particle is the main determinant of where in the respiratory tract the particle will come to rest when inhaled. Larger particles are generally filtered in the nose and throat via cilia and mucus, but particulate matter smaller than about 10 micrometers, can settle in the bronchi and lungs and cause health problems. Particulate matter can clog stomatal openings of plants and interfere with photosynthesis functions. In this manner, high particulate matter concentrations in the atmosphere can lead to growth stunting or mortality in some plant species.",
+    "sensor": {
+      "name": "PMS5003",
+      "type": "Optical scattering",
+      "range": "0-500ug/m3"
+    },
+    "settings": {
+      "min": 0,
+      "max": 100,
+      "unit": "ppm"
+    }
+  },"PM10": {
+    "name": "Particulate Matters",
+    "description": "Particulates – also known as atmospheric aerosol particles, atmospheric particulate matter, particulate matter (PM), or suspended particulate matter (SPM) – are microscopic particles of solid or liquid matter suspended in the air. The term aerosol commonly refers to the particulate/air mixture, as opposed to the particulate matter alone. Sources of particulate matter can be natural or anthropogenic. They have impacts on climate and precipitation that adversely affect human health, in ways additional to direct inhalation. The size of the particle is the main determinant of where in the respiratory tract the particle will come to rest when inhaled. Larger particles are generally filtered in the nose and throat via cilia and mucus, but particulate matter smaller than about 10 micrometers, can settle in the bronchi and lungs and cause health problems. Particulate matter can clog stomatal openings of plants and interfere with photosynthesis functions. In this manner, high particulate matter concentrations in the atmosphere can lead to growth stunting or mortality in some plant species.",
+    "sensor": {
+      "name": "PMS5003",
+      "type": "Optical scattering",
+      "range": "0-500ug/m3"
+    },
+    "settings": {
+      "min": 0,
+      "max": 100,
+      "unit": "ppm"
+    }
+  },
+  "PM2.5": {
     "name": "Particulate Matters",
     "description": "Particulates – also known as atmospheric aerosol particles, atmospheric particulate matter, particulate matter (PM), or suspended particulate matter (SPM) – are microscopic particles of solid or liquid matter suspended in the air. The term aerosol commonly refers to the particulate/air mixture, as opposed to the particulate matter alone. Sources of particulate matter can be natural or anthropogenic. They have impacts on climate and precipitation that adversely affect human health, in ways additional to direct inhalation. The size of the particle is the main determinant of where in the respiratory tract the particle will come to rest when inhaled. Larger particles are generally filtered in the nose and throat via cilia and mucus, but particulate matter smaller than about 10 micrometers, can settle in the bronchi and lungs and cause health problems. Particulate matter can clog stomatal openings of plants and interfere with photosynthesis functions. In this manner, high particulate matter concentrations in the atmosphere can lead to growth stunting or mortality in some plant species.",
     "sensor": {

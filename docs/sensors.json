@@ -37,7 +37,7 @@
     },
     "settings": {
       "min": 0,
-      "max": 100,
+      "max": 1000,
       "unit": "ppm"
     }
   },
@@ -51,7 +51,7 @@
     },
     "settings": {
       "min": 0,
-      "max": 100,
+      "max": 5000,
       "unit": "ppm"
     }
   },
@@ -65,7 +65,7 @@
     },
     "settings": {
       "min": 0,
-      "max": 100,
+      "max": 500,
       "unit": "ppm"
     }
   },
@@ -177,7 +177,7 @@
     "settings": {
       "min": 0,
       "max": 100,
-      "unit": "ppm"
+      "unit": "C"
     }
   }
 }

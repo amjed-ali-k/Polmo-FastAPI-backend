@@ -11,7 +11,7 @@ from services.sensor import get_last_value, get_last_values
 
 r = APIRouter()
 tagname = 'SensorNode'
-valid_sensors = ['NO2', 'CO2', 'CH4', 'CO', 'PM1.0', 'PM2.0', 'PM10', 'O3', 'SO2']
+valid_sensors = ['NH3', 'Humidity', 'Temperature', 'H2S', 'NO2', 'CO2', 'CH4', 'CO', 'PM1.0', 'PM2.5', 'PM10', 'PM10', 'O3', 'SO2']
 
 
 @r.get('/sensor/details/polmo/1.0', tags=[tagname])

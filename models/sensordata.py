@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class SensorReading(BaseModel):
     sensor: str
-    value: int
+    value: float
     time: str
     node: Optional[str]
 

@@ -62,15 +62,7 @@ class Settings(BaseSettings):
 
 @lru_cache()
 def get_settings():
-    file = Path('settings.json').absolute()
-    if not file.exists():
-        print(f'WARNING: {file} file not found. Switching to Env Variables for config.')
-        return Settings(**os.environ)
-        # raise Exception('Key file is missing.')
-    with open('settings.json') as fin:
-        keys = json.load(fin)
-
-    return Settings(**keys)
+    return Settings(**os.environ)
 
 
 settings = get_settings()

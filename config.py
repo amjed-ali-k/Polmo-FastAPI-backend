@@ -9,8 +9,6 @@ from pydantic import AnyHttpUrl, BaseSettings, HttpUrl, validator
 
 class Settings(BaseSettings):
     SECRET_KEY: str = secrets.token_urlsafe(32)
-    # 60 minutes * 24 hours * 8 days = 8 days
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
     SERVER_NAME: str = ""
     SERVER_HOST: AnyHttpUrl = "http://127.0.0.1"
     # BACKEND_CORS_ORIGINS is a JSON-formatted list of origins
@@ -35,23 +33,7 @@ class Settings(BaseSettings):
             return None
         return v
 
-    DB: str = "cloudant"
-    DETA_BASE_KEY: Optional[str]
-    CLOUDANT_AUTH_TYPE: Optional[str] = "IAM"
-    CLOUDANT_URL: Optional[HttpUrl] = "https://bluemix.cloudantnosqldb.appdomain.cloud/"
-    CLOUDANT_APIKEY: Optional[str] = ""
-
-    SMTP_TLS: bool = True
-    SMTP_PORT: Optional[int] = None
-    SMTP_HOST: Optional[str] = None
-    SMTP_USER: Optional[str] = None
-    SMTP_PASSWORD: Optional[str] = None
-    EMAILS_FROM_EMAIL: Optional[str] = None
-    EMAILS_FROM_NAME: Optional[str] = None
-
-    EMAIL_RESET_TOKEN_EXPIRE_HOURS: int = 48
-    EMAILS_ENABLED: bool = False
-    USERS_OPEN_REGISTRATION: bool = False
+    DETA_BASE_KEY: Optional[str] 
 
     # Extras
 

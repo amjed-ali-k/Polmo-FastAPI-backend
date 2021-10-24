@@ -7,7 +7,7 @@ from starlette import status
 from config import settings
 from models.sensordata import SensorReading, SensorPost
 from services.db.deta.SensorDB import store_data_to_deta_db
-from services.sensor import get_last_value, get_last_values
+from services.sensor import get_last_value
 
 r = APIRouter()
 tagname = 'SensorNode'

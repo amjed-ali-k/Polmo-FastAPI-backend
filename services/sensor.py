@@ -5,10 +5,6 @@ from config import settings
 from dateutil.parser import isoparse
 from datetime import timedelta, datetime
 
-
-package = "services.db." + settings.DB
-name = "SensorDB"
-sensorDB = getattr(__import__(package, fromlist=[name]), name)
 from services.db.deta import SensorDB as DetaDB
 
 def iso_format(dt):

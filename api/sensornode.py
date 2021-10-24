@@ -42,16 +42,6 @@ async def get_last_reading(node: str, pollutant: str):
     return res
 
 
-@r.get('/sensor/node/{node}/last/{pollutant}/days/{days}', response_model=List[SensorReading], tags=[tagname])
-async def get_last_days_reading(node: str, pollutant: str, days: int):
-    if pollutant not in valid_sensors:
-        raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Sensor name is invalid")
-    res = await get_last_values(pollutant, node, days)
-    if not res:
-        raise HTTPException(status_code=status.HTTP_206_PARTIAL_CONTENT, detail="No data available")
-    return res
-
-
 @r.post('/update/value/', tags=[tagname])
 async def add_sensor_reading(reading: SensorPost):
     if reading.token != settings.SECRET_KEY:

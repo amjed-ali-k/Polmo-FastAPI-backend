@@ -8,7 +8,6 @@ starlette==0.14.2
 bcrypt==3.2.0
 pydantic[email]
 shortuuid
-ibmcloudant>=0.0.34
 uvicorn
 aiofiles
 python-multipart

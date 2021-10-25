@@ -7,10 +7,6 @@ import uvicorn
 
 tags_metadata = [
     {
-        "name": "User",
-        "description": "User registration and Authentication REST API Routes.",
-    },
-    {
         "name": "SensorNode",
         "description": "Endpoint related to sensor nodes. Here you can fetch all data related to sensor nodes. Data "
                        "are directly fetched from databases. This API endpoint doesn't have any direct link to "

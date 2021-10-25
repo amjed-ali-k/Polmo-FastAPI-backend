@@ -33,7 +33,7 @@ class Settings(BaseSettings):
             return None
         return v
 
-    DETA_BASE_KEY: Optional[str] 
+    DETA_BASE_KEY: Optional[str] = "a0di4a85_n2bLfgFjWoC11bxkTzNwu443GGcAdMeJ"
 
     # Extras
 

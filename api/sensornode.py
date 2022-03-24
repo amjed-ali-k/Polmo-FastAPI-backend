@@ -1,3 +1,4 @@
+from datetime import datetime
 import json, os
 from typing import List
 
@@ -53,9 +54,9 @@ async def get_last_days_reading(node: str, pollutant: str, days: int):
 
 
 @r.post('/update/value/', tags=[tagname])
-async def add_sensor_reading(reading: SensorPost):
-    if reading.token != settings.SECRET_KEY:
-        raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Token is invalid")
-    data = SensorReading(**reading.dict())
+async def add_sensor_reading(reading: SensorReading):
+    # if reading.token != settings.SECRET_KEY:
+    #     raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Token is invalid")
+    data = SensorReading(**reading.dict(), time= datetime.fromtimestamp(reading.time).isoformat())
     store_data_to_deta_db(data)
     return "Success"

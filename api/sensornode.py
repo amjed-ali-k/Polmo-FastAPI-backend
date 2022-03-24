@@ -53,10 +53,12 @@ async def get_last_days_reading(node: str, pollutant: str, days: int):
     return res
 
 
-@r.post('/update/value/', tags=[tagname])
+@r.post('/new-reading', tags=[tagname])
 async def add_sensor_reading(reading: SensorReading):
     # if reading.token != settings.SECRET_KEY:
     #     raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Token is invalid")
+    if reading.sensor not in valid_sensors:
+        raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Sensor name is invalid")
     data = SensorReading(**reading.dict(), time= datetime.fromtimestamp(reading.time).isoformat())
     store_data_to_deta_db(data)
     return "Success"

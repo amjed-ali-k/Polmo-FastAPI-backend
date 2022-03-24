@@ -59,6 +59,6 @@ async def add_sensor_reading(reading: SensorPost):
     #     raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Token is invalid")
     if reading.sensor not in valid_sensors:
         raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Sensor name is invalid")
-    data = SensorReading(**reading.dict(), time= datetime.now().isoformat())
+    data = SensorReading(**reading.dict(), time = datetime.now().isoformat(), node="752b40ba-ebc0")
     store_data_to_deta_db(data)
     return "Success"

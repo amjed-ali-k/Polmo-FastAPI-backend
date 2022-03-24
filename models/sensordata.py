@@ -10,5 +10,6 @@ class SensorReading(BaseModel):
     node: Optional[str]
 
 
-class SensorPost(SensorReading):
-    token: str
+class SensorPost(BaseModel):
+     sensor: str
+     value: float
